@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Character/Main Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="Test Room" type="Node2D"]
+
+[node name="Main Character" parent="." instance=ExtResource( 1 )]
+position = Vector2( 153.874, 89.6009 )
+speed = 110
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 194.496, 219.616 )
+texture = ExtResource( 2 )
