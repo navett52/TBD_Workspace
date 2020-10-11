@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mc-frontrun.png-d00db68f6ab979e5bb6911fb94bf7777.stex"
+path="res://.import/mc-sidebase.png-580347fa0c7bb913e1c9269d96e72f96.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/Animations/mc-frontrun.png"
-dest_files=[ "res://.import/mc-frontrun.png-d00db68f6ab979e5bb6911fb94bf7777.stex" ]
+source_file="res://Character/Animations/Raw/mc-sidebase.png"
+dest_files=[ "res://.import/mc-sidebase.png-580347fa0c7bb913e1c9269d96e72f96.stex" ]
 
 [params]
 
