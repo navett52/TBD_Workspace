@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Character/Main Character.gd" type="Script" id=1]
 [ext_resource path="res://Character/Camera/GridSnapper.gd" type="Script" id=2]
-[ext_resource path="res://Character/mc-base.png" type="Texture" id=3]
-[ext_resource path="res://Character/Animations/move_down.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://Character/Animations/character_animations.tres" type="SpriteFrames" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9, 16 )
@@ -16,14 +15,10 @@ speed = 35
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = ExtResource( 4 )
-frame = 2
+frames = ExtResource( 3 )
+animation = "idle_down"
 speed_scale = 2.0
 playing = true
-
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 3 )
 
 [node name="GridSnapper" type="Position2D" parent="."]
 script = ExtResource( 2 )
