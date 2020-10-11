@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+signal talks
+var talking
+
 export(int) var speed = 50
 var velocity = Vector2.ZERO
 var look_direction = Vector2.ZERO
@@ -8,6 +11,9 @@ var look_direction = Vector2.ZERO
 func _ready():
 	pass # Replace with function body.
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		emit_signal("talks")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -29,4 +35,5 @@ func _physics_process(delta):
 	
 	velocity = speed * direction
 	
-	move_and_slide(velocity)
+	if not talking:
+		move_and_slide(velocity)

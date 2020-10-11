@@ -1,9 +1,16 @@
 extends Sprite
 
+onready var player = get_parent().get_node("Main Character")
+
 var quest_path = "res://NPCs/test_script.json"
 var quest_result
 
 var quest_dialogue
+var should_talk = false
+var talking = false
+var total_dialogue_count
+var current_dialogue = 0
+var text_box
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,8 +32,42 @@ func _ready():
 	else:
 		print(quest_json_return.error_string)
 	quest_dialogue = quest_result["dialogue"]
+	total_dialogue_count = quest_dialogue.size()
 	print(quest_dialogue[0])
+	print(total_dialogue_count)
+	
+	# Connect to the talks signal from the player
+	player.connect("talks", self, "initiate_dialogue")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func progress_dialogue():
+	if talking and current_dialogue < total_dialogue_count:
+			text_box.text = quest_dialogue[current_dialogue]
+			current_dialogue += 1
+	elif text_box:
+		talking = false
+		should_talk = false
+		player.talking = false
+		current_dialogue = 0
+		self.remove_child(text_box)
+		text_box.queue_free()
+
+func initiate_dialogue():
+	if should_talk and not talking:
+		print("Initiating dialogue")
+		talking = true
+		player.talking = true
+		text_box = RichTextLabel.new()
+		text_box.text = quest_dialogue[current_dialogue]
+		current_dialogue += 1
+		text_box.rect_size = Vector2(448, 96)
+		text_box.anchor_left = .10
+		text_box.anchor_right = .90
+		self.add_child(text_box)
+
+# Set whether the player is within range to start dialogue.
+func _on_TalkArea_body_entered(body):
+	if body.name == "Main Character":
+		should_talk = true
+func _on_TalkArea_body_exited(body):
+	if body.name == "Main Character":
+		should_talk = false
