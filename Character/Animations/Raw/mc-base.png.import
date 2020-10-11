@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mc-base.png-74c433d55c5855df24450170485d4ec0.stex"
+path="res://.import/mc-base.png-c91073d48d0a8254e4aa867df7f5d04b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/mc-base.png"
-dest_files=[ "res://.import/mc-base.png-74c433d55c5855df24450170485d4ec0.stex" ]
+source_file="res://Character/Animations/Raw/mc-base.png"
+dest_files=[ "res://.import/mc-base.png-c91073d48d0a8254e4aa867df7f5d04b.stex" ]
 
 [params]
 
