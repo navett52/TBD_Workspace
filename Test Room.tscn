@@ -9,6 +9,9 @@
 [node name="NPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 112, 0 )
 
+[node name="NPC2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -80, 176 )
+
 [node name="Main Character" parent="." instance=ExtResource( 1 )]
 speed = 110
 

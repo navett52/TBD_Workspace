@@ -35,4 +35,4 @@ func update_grid_position():
 
 # Return the current size of what the camera can see.
 func get_camera_size():
-	return get_viewport().size * $Camera2D.zoom
+	return get_viewport().size * $MainCamera.zoom

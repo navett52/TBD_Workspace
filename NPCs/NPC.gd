@@ -11,6 +11,7 @@ var talking = false
 var total_dialogue_count
 var current_dialogue = 0
 var text_box
+export(int) var height = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,18 +39,19 @@ func _ready():
 	player.connect("talks", self, "initiate_dialogue")
 
 func initiate_dialogue():
-	print("Initiating dialogue")
-	text_box = get_node_or_null("Dialogue Box")
-	if current_dialogue < total_dialogue_count and talking:
-		text_box.text = quest_dialogue[current_dialogue]
-		current_dialogue += 1
-	elif text_box:
-		talking = false
-		should_talk = false
-		player.talking = false
-		current_dialogue = 0
-		self.remove_child(text_box)
-		text_box.queue_free()
+	if talking:
+		text_box = player.get_node("GridSnapper/UI").get_node_or_null("Dialogue Box")
+		print("Node or Null return: " + str(text_box))
+		if current_dialogue < total_dialogue_count:
+			text_box.text = quest_dialogue[current_dialogue]
+			current_dialogue += 1
+		elif text_box:
+			talking = false
+			should_talk = false
+			player.talking = false
+			current_dialogue = 0
+			self.remove_child(text_box)
+			text_box.queue_free()
 	
 	if should_talk and not talking:
 		talking = true
@@ -58,10 +60,21 @@ func initiate_dialogue():
 		text_box.name = "Dialogue Box"
 		text_box.text = quest_dialogue[current_dialogue]
 		current_dialogue += 1
-		text_box.rect_size = Vector2(448, 96)
-		text_box.anchor_left = .10
-		text_box.anchor_right = .90
-		self.add_child(text_box)
+		print(player.get_node("GridSnapper/MainCamera").zoom)
+		print(get_viewport().size.x)
+		text_box.rect_size = Vector2((get_viewport().size.x * player.get_node("GridSnapper/MainCamera").zoom.x), 96)
+		text_box.rect_position = Vector2(-(text_box.rect_size.x * .5), height)
+		var theme = Theme.new()
+		var style = StyleBoxFlat.new()
+		style.bg_color = Color.black
+		style.content_margin_bottom = 10
+		style.content_margin_left = 10
+		style.content_margin_right = 10
+		style.content_margin_top = 10
+		theme.set_stylebox("normal", "RichTextLabel", style)
+		text_box.theme = theme
+		print(player.get_node("GridSnapper/UI"))
+		player.get_node("GridSnapper/UI").add_child(text_box, true)
 
 # Set whether the player is within range to start dialogue.
 func _on_TalkArea_body_entered(body):
