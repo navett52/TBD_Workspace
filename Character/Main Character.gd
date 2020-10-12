@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	if direction == Vector2.ZERO:
 		if Input.is_action_just_released("move_up"):
-			$AnimatedSprite.animation = "idle_down"
+			$AnimatedSprite.animation = "idle_up"
 		elif Input.is_action_just_released("move_down"):
 			$AnimatedSprite.animation = "idle_down"
 		elif Input.is_action_just_released("move_left"):
@@ -23,7 +23,7 @@ func _process(delta):
 	
 	if direction != Vector2.ZERO:
 		if Input.is_action_pressed("move_up"):
-			$AnimatedSprite.animation = "move_down"
+			$AnimatedSprite.animation = "move_up"
 		elif Input.is_action_pressed("move_down"):
 			$AnimatedSprite.animation = "move_down"
 		elif Input.is_action_pressed("move_left"):
@@ -35,7 +35,7 @@ func _process(delta):
 func _physics_process(delta):
 	direction = Vector2.ZERO
 	get_input()
-	var velocity = speed * direction
+	var velocity = speed * direction.normalized()
 	move_and_slide(velocity)
 
 func get_input():
