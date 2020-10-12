@@ -33,16 +33,16 @@ func _ready():
 		print(quest_json_return.error_string)
 	quest_dialogue = quest_result["dialogue"]
 	total_dialogue_count = quest_dialogue.size()
-	print(quest_dialogue[0])
-	print(total_dialogue_count)
 	
 	# Connect to the talks signal from the player
 	player.connect("talks", self, "initiate_dialogue")
 
-func progress_dialogue():
-	if talking and current_dialogue < total_dialogue_count:
-			text_box.text = quest_dialogue[current_dialogue]
-			current_dialogue += 1
+func initiate_dialogue():
+	print("Initiating dialogue")
+	text_box = get_node_or_null("Dialogue Box")
+	if current_dialogue < total_dialogue_count and talking:
+		text_box.text = quest_dialogue[current_dialogue]
+		current_dialogue += 1
 	elif text_box:
 		talking = false
 		should_talk = false
@@ -50,13 +50,12 @@ func progress_dialogue():
 		current_dialogue = 0
 		self.remove_child(text_box)
 		text_box.queue_free()
-
-func initiate_dialogue():
+	
 	if should_talk and not talking:
-		print("Initiating dialogue")
 		talking = true
 		player.talking = true
 		text_box = RichTextLabel.new()
+		text_box.name = "Dialogue Box"
 		text_box.text = quest_dialogue[current_dialogue]
 		current_dialogue += 1
 		text_box.rect_size = Vector2(448, 96)

@@ -14,7 +14,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("talks")
 
-	if direction == Vector2.ZERO:
+	if direction == Vector2.ZERO and not talking:
 		if Input.is_action_just_released("move_up"):
 			$AnimatedSprite.animation = "idle_down"
 		elif Input.is_action_just_released("move_down"):
@@ -27,7 +27,7 @@ func _process(delta):
 			or Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right")):
 			$AnimatedSprite.animation = "idle_down"
 
-	if direction != Vector2.ZERO:
+	if direction != Vector2.ZERO and not talking:
 		if Input.is_action_pressed("move_up"):
 			$AnimatedSprite.animation = "move_down"
 		elif Input.is_action_pressed("move_down"):
