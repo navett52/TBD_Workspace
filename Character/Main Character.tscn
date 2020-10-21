@@ -25,14 +25,7 @@ script = ExtResource( 2 )
 
 [node name="MainCamera" type="Camera2D" parent="GridSnapper"]
 current = true
-zoom = Vector2( 0.3, 0.3 )
+zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true
 smoothing_speed = 10.0
 editor_draw_drag_margin = true
-
-[node name="UI" type="Control" parent="GridSnapper"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}

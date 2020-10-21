@@ -19,6 +19,12 @@ config/name="TBD"
 run/main_scene="res://Test Room.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [input]
 
 move_up={
