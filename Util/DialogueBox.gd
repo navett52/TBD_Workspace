@@ -44,7 +44,7 @@ func _fetch_dialogue() -> Array:
 	# Parse the quest data and check for errors.
 	var dialogue_result: Dictionary
 	var dialogue_json_return: JSONParseResult = JSON.parse(quest_raw)
-	assert(dialogue_json_return.error == OK, "ASSERTION FAILED: Failed to parse dialogue JSON properly! See error below... \n" + str(dialogue_json_return.error))
+	assert(dialogue_json_return.error == OK, "Failed to parse dialogue JSON properly! See error below... \n" + str(dialogue_json_return.error))
 	if dialogue_json_return.error == OK:
 		dialogue_result = dialogue_json_return.result
 		return dialogue_result["dialogue"]

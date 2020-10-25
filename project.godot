@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Dialogue",
 "language": "GDScript",
 "path": "res://Util/DialogueBox.gd"
+}, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://git_api.gdns"
 } ]
 _global_script_class_icons={
-"Dialogue": ""
+"Dialogue": "",
+"GitAPI": ""
 }
 
 [application]
@@ -30,9 +36,12 @@ G="*res://Util/G.gd"
 
 [display]
 
-window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[gdnative]
+
+singletons=[ "res://git_api.gdnlib" ]
 
 [input]
 

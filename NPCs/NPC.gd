@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func initiate_dialogue() -> void:
 	if should_talk:
-		print("Oh! He spoke to me... I should say something back.")
+		# Create a new instance of dialogue box and setup it's connections with the player.
 		dialogue_box = G.dialogue_scene.instance()
 		dialogue_box.dialogue_path = self.dialogue_path
 		player.connect("progress_dialogue", dialogue_box, "progress_dialogue")
@@ -26,10 +26,8 @@ func initiate_dialogue() -> void:
 # Set whether the player is within range to start dialogue.
 func _on_TalkArea_body_entered(body: Node) -> void:
 	if body.name == "Main Character":
-		print("Player got close to me, maybe I should say something")
 		should_talk = true
 
 func _on_TalkArea_body_exited(body: Node) -> void:
 	if body.name == "Main Character":
-		print("Nevermind he left...")
 		should_talk = false

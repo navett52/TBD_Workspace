@@ -12,10 +12,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if not is_talking:
 			emit_signal("talks")
-			print("Player talks")
 		else:
 			emit_signal("progress_dialogue")
-			print("Player progresses dialogue")
 	
 	if direction == Vector2.ZERO and not is_talking:
 		if Input.is_action_just_released("move_up"):
