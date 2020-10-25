@@ -34,7 +34,7 @@ func _fetch_dialogue() -> Array:
 	# Open up our quest file and see if there are any errors.
 	var file_status: int = dialogue_file.open(dialogue_path, File.READ)
 	var quest_raw: String
-	assert(file_status == OK, "ASSERTION FAILED: Failed to open file from path [\"" + dialogue_path + "\"]\nFile Status: " + str(file_status))
+	assert(file_status == OK, "Failed to open file from path [\"" + dialogue_path + "\"]\nFile Status: " + str(file_status))
 	if file_status == OK:
 		quest_raw = dialogue_file.get_as_text()
 	else:

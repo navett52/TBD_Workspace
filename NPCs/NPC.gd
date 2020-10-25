@@ -22,7 +22,6 @@ func initiate_dialogue() -> void:
 		dialogue_box.connect("started_dialogue", player, "started_dialogue")
 		dialogue_box.connect("finished_dialogue", player, "finished_dialogue")
 		player.get_node("UI").add_child(dialogue_box)
-	pass
 
 # Set whether the player is within range to start dialogue.
 func _on_TalkArea_body_entered(body: Node) -> void:
