@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "NinePatchRect",
+"class": "Dialogue",
+"language": "GDScript",
+"path": "res://Util/DialogueBox.gd"
+} ]
 _global_script_class_icons={
-
+"Dialogue": ""
 }
 
 [application]
@@ -18,6 +23,10 @@ _global_script_class_icons={
 config/name="TBD"
 run/main_scene="res://Test Room.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+G="*res://Util/G.gd"
 
 [display]
 

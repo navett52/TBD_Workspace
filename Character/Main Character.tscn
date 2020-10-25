@@ -1,17 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Character/Main Character.gd" type="Script" id=1]
 [ext_resource path="res://Character/Camera/GridSnapper.gd" type="Script" id=2]
 [ext_resource path="res://Character/Animations/character_animations.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://Util/UI.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9, 16 )
+extents = Vector2( 9, 8 )
 
 [node name="Main Character" type="KinematicBody2D"]
 script = ExtResource( 1 )
 speed = 35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -29,3 +31,5 @@ zoom = Vector2( 0.5, 0.5 )
 smoothing_enabled = true
 smoothing_speed = 10.0
 editor_draw_drag_margin = true
+
+[node name="UI" parent="." instance=ExtResource( 4 )]
