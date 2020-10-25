@@ -27,11 +27,19 @@ config/icon="res://icon.png"
 [autoload]
 
 G="*res://Util/G.gd"
+PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
+IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+UserData="*res://addons/github-integration/scripts/user_data.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "github-integration" )
 
 [gdnative]
 
