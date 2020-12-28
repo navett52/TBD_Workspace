@@ -13,6 +13,8 @@ speed = 110
 [node name="NPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 112, 0 )
 dialogue_path = "res://NPCs/test_script.json"
+objective = "Finished Quest 1"
+reward = 1
 
 [node name="NPC2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -80, 176 )

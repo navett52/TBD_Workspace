@@ -1,6 +1,9 @@
 extends Sprite
+class_name NPC
 
 export(String) var dialogue_path: String
+export(String) var objective: String
+export(int, "None", "Lantern") var reward: int
 
 var should_talk: bool = false
 var talking: bool = false
@@ -21,7 +24,15 @@ func initiate_dialogue() -> void:
 		player.connect("progress_dialogue", dialogue_box, "progress_dialogue")
 		dialogue_box.connect("started_dialogue", player, "started_dialogue")
 		dialogue_box.connect("finished_dialogue", player, "finished_dialogue")
+		dialogue_box.connect("finished_dialogue", self, "finished_dialogue")
 		player.get_node("UI").add_child(dialogue_box)
+
+func finished_dialogue() -> void:
+	match(player.objectives[objective]):
+		player.quest_states.UNACCEPTED:
+			player.objectives[objective] = player.quest_states.ACCEPTED
+		player.quest_states.COMPLETE:
+			player.give(reward)
 
 # Set whether the player is within range to start dialogue.
 func _on_TalkArea_body_entered(body: Node) -> void:

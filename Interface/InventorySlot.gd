@@ -1,12 +1,12 @@
 extends Control
 
 export(Color) var hover_color
-export(int, "None", "Lantern") var assigned_tool
-var last_tool
+var assigned_tool: int
+var last_tool: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_slot(assigned_tool)
+	set_slot(G.Items.NONE)
 	last_tool = assigned_tool
 	print("Assigned Tool: ", assigned_tool)
 	print("Last Tool: ", last_tool)

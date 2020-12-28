@@ -44,7 +44,7 @@ margin_bottom = 215.0
 [node name="InventorySlot4" parent="Container" instance=ExtResource( 2 )]
 margin_left = -163.744
 margin_top = 83.7433
-margin_right = -83.7437
+margin_right = -83.7435
 margin_bottom = 163.744
 
 [node name="InventorySlot5" parent="Container" instance=ExtResource( 2 )]
@@ -56,8 +56,8 @@ margin_bottom = 40.0
 [node name="InventorySlot6" parent="Container" instance=ExtResource( 2 )]
 margin_left = -163.744
 margin_top = -163.744
-margin_right = -83.7437
-margin_bottom = -83.7437
+margin_right = -83.7435
+margin_bottom = -83.7435
 
 [node name="InventorySlot7" parent="Container" instance=ExtResource( 2 )]
 margin_left = -40.0
@@ -69,4 +69,4 @@ margin_bottom = -135.0
 margin_left = 83.7433
 margin_top = -163.744
 margin_right = 163.744
-margin_bottom = -83.7437
+margin_bottom = -83.7436
