@@ -13,16 +13,32 @@ _global_script_classes=[ {
 "class": "Dialogue",
 "language": "GDScript",
 "path": "res://Util/DialogueBox.gd"
+}, {
+"base": "Node2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Character/Equipment/Item.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Character/Main Character.gd"
 } ]
 _global_script_class_icons={
-"Dialogue": ""
+"Dialogue": "",
+"Item": "",
+"Player": ""
 }
 
 [application]
 
 config/name="TBD"
 run/main_scene="res://Test Room.tscn"
-config/icon="res://icon.png"
+config/icon="res://Character/Animations/Raw/mc-base.png"
+
+[aseprite_animation_importer]
+
+aseprite_executable_path=""
 
 [autoload]
 
@@ -31,6 +47,7 @@ PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
 IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 UserData="*res://addons/github-integration/scripts/user_data.gd"
+QuestTracker="*res://Util/QuestTracker.gd"
 
 [display]
 
@@ -39,7 +56,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "github-integration" )
+enabled=PoolStringArray( "AsepriteAnimationImporter", "Todo_Manager", "github-integration" )
 
 [gdnative]
 
@@ -65,6 +82,11 @@ move_left={
 move_right={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_inventory={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
 

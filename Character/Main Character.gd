@@ -1,19 +1,35 @@
 extends KinematicBody2D
+class_name Player
 
 signal talks # When the player first tries to talk to an npc
 signal progress_dialogue # When a player is talking and wants to progress through the dialogue
 
 var is_talking: bool
 
+var in_interact_range: bool = false
+var interactee: Node
+
 export(int) var speed: int = 50
 var direction: Vector2 = Vector2.ZERO
 
+var tool_equipped: int = G.Items.LANTERN
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
+		# Dialogue system control
 		if not is_talking:
 			emit_signal("talks")
 		else:
 			emit_signal("progress_dialogue")
+		
+		# Contextual interaction control
+		if in_interact_range:
+			interactee.interact(tool_equipped)
+	
+#	if Input.is_action_pressed("ui_inventory"):
+#		$UI/Inventory.visible = true
+#	else:
+#		$UI/Inventory.visible = false
 	
 	if direction == Vector2.ZERO and not is_talking:
 		if Input.is_action_just_released("move_up"):
@@ -56,6 +72,11 @@ func _get_input() -> void:
 		direction.x += -1
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
+
+func _on_InteractArea_area_entered(area: Area2D) -> void:
+	interactee = area.get_parent()
+	if interactee.has_method("interact"):
+		in_interact_range = true
 
 func started_dialogue() -> void:
 	is_talking = true
