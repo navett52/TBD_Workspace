@@ -12,17 +12,7 @@ var interactee: Node
 export(int) var speed: int = 50
 var direction: Vector2 = Vector2.ZERO
 
-var tool_equipped: int = G.Items.LANTERN
-
-# The below should probably be moved to it's own system.
-enum quest_states {
-	UNACCEPTED,
-	ACCEPTED,
-	COMPLETE
-}
-var objectives: Dictionary = {
-	"Finished Quest 1": quest_states.UNACCEPTED
-}
+var tool_equipped: int = G.Items.NONE
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -83,21 +73,26 @@ func _get_input() -> void:
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 
-func give(item: int) -> void:
-	assign_inventory(item)
-
-func assign_inventory(item: int) -> void:
-	var inventory_slots: Array = get_node("UI/Inventory/Container").get_children()
-	for slot in inventory_slots:
-		if slot.assigned_tool == G.Items.NONE:
-			slot.assigned_tool = item
-			break
-
-func _on_InteractArea_area_entered(area: Area2D) -> void:
-	interactee = area.get_parent()
-	if interactee.has_method("interact"):
-		in_interact_range = true
-
+#func give(item: int) -> void:
+#	assign_inventory(item)
+#
+#func assign_inventory(item: int) -> void:
+#	var inventory_slots: Array = get_node("UI/Inventory/Container").get_children()
+#	for slot in inventory_slots:
+#		if slot.assigned_tool == G.Items.NONE:
+#			slot.assigned_tool = item
+#			break
+#
+#func _on_InteractArea_area_entered(area: Area2D) -> void:
+#	interactee = area.get_parent()
+#	if interactee.has_method("interact"):
+#		in_interact_range = true
+#
+#func _on_InteractArea_area_exited(area: Area2D) -> void:
+#	interactee = area.get_parent()
+#	if interactee.has_method("interact"):
+#		in_interact_range = false
+#
 func started_dialogue() -> void:
 	is_talking = true
 

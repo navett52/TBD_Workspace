@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Character/Main Character.gd" type="Script" id=1]
+[ext_resource path="res://Character/MainCharacter.gd" type="Script" id=1]
 [ext_resource path="res://Character/Camera/GridSnapper.gd" type="Script" id=2]
 [ext_resource path="res://Character/Animations/character_animations.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://Character/UI.tscn" type="PackedScene" id=4]
@@ -16,7 +16,6 @@ height = 14.0
 
 [node name="Main Character" type="KinematicBody2D"]
 script = ExtResource( 1 )
-speed = 35
 
 [node name="EnvironmentCollision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
@@ -51,3 +50,4 @@ pause_mode = 2
 visible = false
 script = ExtResource( 6 )
 [connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_area_entered"]
+[connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]
