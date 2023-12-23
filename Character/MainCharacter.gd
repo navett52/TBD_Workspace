@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name Player
 
 signal talks # When the player first tries to talk to an npc
@@ -9,7 +9,7 @@ var is_talking: bool
 var in_interact_range: bool = false
 var interactee: Node
 
-export(int) var speed: int = 50
+@export var speed: int = 50
 var direction: Vector2 = Vector2.ZERO
 
 var tool_equipped: int = G.Items.NONE
@@ -33,26 +33,26 @@ func _process(delta: float) -> void:
 	
 	if direction == Vector2.ZERO and not is_talking:
 		if Input.is_action_just_released("move_up"):
-			$AnimatedSprite.animation = "idle_up"
+			$AnimatedSprite2D.animation = "idle_up"
 		elif Input.is_action_just_released("move_down"):
-			$AnimatedSprite.animation = "idle_down"
+			$AnimatedSprite2D.animation = "idle_down"
 		elif Input.is_action_just_released("move_left"):
-			$AnimatedSprite.animation = "idle_left"
+			$AnimatedSprite2D.animation = "idle_left"
 		elif Input.is_action_just_released("move_right"):
-			$AnimatedSprite.animation = "idle_right"
+			$AnimatedSprite2D.animation = "idle_right"
 		elif (Input.is_action_pressed("move_up") and Input.is_action_pressed("move_down")
 			or Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right")):
-			$AnimatedSprite.animation = "idle_down"
+			$AnimatedSprite2D.animation = "idle_down"
 	
 	if direction != Vector2.ZERO and not is_talking:
 		if Input.is_action_pressed("move_up"):
-			$AnimatedSprite.animation = "move_up"
+			$AnimatedSprite2D.animation = "move_up"
 		elif Input.is_action_pressed("move_down"):
-			$AnimatedSprite.animation = "move_down"
+			$AnimatedSprite2D.animation = "move_down"
 		elif Input.is_action_pressed("move_left"):
-			$AnimatedSprite.animation = "move_left"
+			$AnimatedSprite2D.animation = "move_left"
 		elif Input.is_action_pressed("move_right"):
-			$AnimatedSprite.animation = "move_right"
+			$AnimatedSprite2D.animation = "move_right"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -60,7 +60,8 @@ func _physics_process(delta: float) -> void:
 	_get_input()
 	var velocity: Vector2 = speed * direction.normalized()
 	if not is_talking:
-		move_and_slide(velocity)
+		set_velocity(velocity)
+		move_and_slide()
 
 func _get_input() -> void:
 	# Create the direction vector based on what buttons are pressed.

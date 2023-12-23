@@ -1,9 +1,9 @@
-tool
+@tool
 extends Container
 # Creates a radial container node
 
-export(int) var button_radius = 100 # in godot position units
-export(int, 360) var whole_rotation = 0 # in degrees
+@export var button_radius: int = 100 # in godot position units
+@export var whole_rotation = 0 # in degrees # (int, 360)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +31,7 @@ func place_buttons():
 		# set button's position
 		# we want to center the element on the circle. 
 		# to do this we need to offset the calculated x and y respectively by half the height and width
-		btn.rect_position = circle_pos.rotated(deg2rad(whole_rotation)) - (btn.get_size()/2)
+		btn.position = circle_pos.rotated(deg_to_rad(whole_rotation)) - (btn.get_size()/2)
 		
 		#Advance to next angle position
 		angle += angle_offset

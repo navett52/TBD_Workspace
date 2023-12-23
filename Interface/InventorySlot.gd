@@ -1,6 +1,6 @@
 extends Control
 
-export(Color) var hover_color
+@export var hover_color: Color
 var assigned_tool: int
 var last_tool: int
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not get_parent().visible:
-		self.modulate = Color.white
+		self.modulate = Color.WHITE
 	
 	if assigned_tool != last_tool:
 		print("Tool changed!")
@@ -28,7 +28,7 @@ func _on_RadialOption_mouse_entered() -> void:
 
 
 func _on_RadialOption_mouse_exited() -> void:
-	self.modulate = Color.white
+	self.modulate = Color.WHITE
 
 
 func _on_RadialOption_gui_input(event):
@@ -42,6 +42,6 @@ func set_slot(tool_id : int):
 	var new_tool = G.create_equipment(tool_id)
 	print("New tools type: " + str(new_tool.type))
 	assigned_tool = new_tool.type
-	get_node("Border/Icon").texture = new_tool.get_node("Sprite").texture
+	get_node("Border/Icon").texture = new_tool.get_node("Sprite2D").texture
 	# Below is just for debug while there are no actual sprites for things.
-	get_node("Border/Icon").modulate = new_tool.get_node("Sprite").modulate
+	get_node("Border/Icon").modulate = new_tool.get_node("Sprite2D").modulate

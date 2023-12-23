@@ -13,10 +13,10 @@ __meta__ = {
 [node name="Container" type="Container" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 498.0
-margin_top = 288.0
-margin_right = -526.0
-margin_bottom = -312.0
+offset_left = 498.0
+offset_top = 288.0
+offset_right = -526.0
+offset_bottom = -312.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -24,49 +24,49 @@ __meta__ = {
 button_radius = 175
 
 [node name="InventorySlot" parent="Container" instance=ExtResource( 2 )]
-margin_left = 135.0
-margin_top = -40.0
-margin_right = 215.0
-margin_bottom = 40.0
+offset_left = 135.0
+offset_top = -40.0
+offset_right = 215.0
+offset_bottom = 40.0
 
 [node name="InventorySlot2" parent="Container" instance=ExtResource( 2 )]
-margin_left = 83.7433
-margin_top = 83.7433
-margin_right = 163.744
-margin_bottom = 163.744
+offset_left = 83.7433
+offset_top = 83.7433
+offset_right = 163.744
+offset_bottom = 163.744
 
 [node name="InventorySlot3" parent="Container" instance=ExtResource( 2 )]
-margin_left = -40.0
-margin_top = 135.0
-margin_right = 40.0
-margin_bottom = 215.0
+offset_left = -40.0
+offset_top = 135.0
+offset_right = 40.0
+offset_bottom = 215.0
 
 [node name="InventorySlot4" parent="Container" instance=ExtResource( 2 )]
-margin_left = -163.744
-margin_top = 83.7433
-margin_right = -83.7435
-margin_bottom = 163.744
+offset_left = -163.744
+offset_top = 83.7433
+offset_right = -83.7435
+offset_bottom = 163.744
 
 [node name="InventorySlot5" parent="Container" instance=ExtResource( 2 )]
-margin_left = -215.0
-margin_top = -40.0
-margin_right = -135.0
-margin_bottom = 40.0
+offset_left = -215.0
+offset_top = -40.0
+offset_right = -135.0
+offset_bottom = 40.0
 
 [node name="InventorySlot6" parent="Container" instance=ExtResource( 2 )]
-margin_left = -163.744
-margin_top = -163.744
-margin_right = -83.7435
-margin_bottom = -83.7435
+offset_left = -163.744
+offset_top = -163.744
+offset_right = -83.7435
+offset_bottom = -83.7435
 
 [node name="InventorySlot7" parent="Container" instance=ExtResource( 2 )]
-margin_left = -40.0
-margin_top = -215.0
-margin_right = 40.0
-margin_bottom = -135.0
+offset_left = -40.0
+offset_top = -215.0
+offset_right = 40.0
+offset_bottom = -135.0
 
 [node name="InventorySlot8" parent="Container" instance=ExtResource( 2 )]
-margin_left = 83.7433
-margin_top = -163.744
-margin_right = 163.744
-margin_bottom = -83.7436
+offset_left = 83.7433
+offset_top = -163.744
+offset_right = 163.744
+offset_bottom = -83.7436

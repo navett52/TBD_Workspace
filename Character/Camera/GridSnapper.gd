@@ -1,14 +1,14 @@
-extends Position2D
+extends Marker2D
 
 var grid_size = Vector2()
 var grid_position = Vector2()
 
-onready var parent = self.get_parent()
+@onready var parent = self.get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grid_size = get_camera_size()
-	set_as_toplevel(true)
+	set_as_top_level(true)
 	update_grid_position()
 
 func _physics_process(delta):
@@ -31,8 +31,8 @@ func update_grid_position():
 	
 	# Update the grid position if they are not the same and move the camera to the new grid cell.
 	grid_position = new_grid_position
-	self.position = grid_position * grid_size
+	self.position = Vector2i(grid_position) * grid_size
 
 # Return the current size of what the camera can see.
 func get_camera_size():
-	return get_viewport().size * $MainCamera.zoom
+	return get_viewport().size * Vector2i($MainCamera.zoom)

@@ -1,0 +1,12 @@
+res://Test Room.tscn
+res://default_env.tres
+res://Util/DialogueBox.gd
+res://addons/github-integration/resources/themes/GitHubTheme-Dark.tres
+res://addons/github-integration/resources/themes/GitHubTheme.tres
+res://addons/github-integration/scripts/IconLoaderGithub.gd
+res://addons/github-integration/scripts/user_data.gd
+res://Character/Main Character.tscn
+res://Character/Animations/character_animations.tres
+res://README.md
+res://SUPPORTERS.md
+res://Character/Camera/GridSnapper.gd

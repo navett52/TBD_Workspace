@@ -17,35 +17,35 @@ __meta__ = {
 [node name="EquippedItems" type="VBoxContainer" parent="Interface"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -120.0
-margin_bottom = 120.0
+offset_left = -120.0
+offset_bottom = 120.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UpperEquippedItems" type="HBoxContainer" parent="Interface/EquippedItems"]
-margin_top = 18.0
-margin_right = 120.0
-margin_bottom = 58.0
+offset_top = 18.0
+offset_right = 120.0
+offset_bottom = 58.0
 alignment = 1
 
 [node name="EquippedItemLeft" parent="Interface/EquippedItems/UpperEquippedItems" instance=ExtResource( 3 )]
 anchor_left = 0.0
 anchor_right = 0.0
-margin_left = 18.0
-margin_right = 58.0
+offset_left = 18.0
+offset_right = 58.0
 
 [node name="EquippedItemRight" parent="Interface/EquippedItems/UpperEquippedItems" instance=ExtResource( 2 )]
 anchor_left = 0.0
 anchor_right = 0.0
-margin_left = 62.0
-margin_right = 102.0
+offset_left = 62.0
+offset_right = 102.0
 
 [node name="EquippedItemBottom" parent="Interface/EquippedItems" instance=ExtResource( 1 )]
 anchor_left = 0.0
 anchor_right = 0.0
-margin_left = 0.0
-margin_top = 62.0
-margin_right = 120.0
-margin_bottom = 102.0
+offset_left = 0.0
+offset_top = 62.0
+offset_right = 120.0
+offset_bottom = 102.0

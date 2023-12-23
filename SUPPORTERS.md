@@ -13,7 +13,7 @@ This is a list of people who decided to support my plugin with donations. Even t
   
   
   
-    
+	
   
   
 
@@ -26,7 +26,7 @@ This is a list of people who decided to support my plugin with donations. Even t
 
   
   
-    
+	
   
   
   

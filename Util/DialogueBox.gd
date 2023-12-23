@@ -16,34 +16,37 @@ func _ready() -> void:
 	assert(dialogue.size() > 0, "Dialogue received has no dialogue.")
 	if (dialogue.size() > 0):
 		total_dialogue_count = dialogue.size()
-		$MarginContainer/RichTextLabel.bbcode_text = dialogue[current_dialogue_index]
+		$MarginContainer/RichTextLabel.text = dialogue[current_dialogue_index]
 	else:
 		print("Dialogue received has no dialogue.")
 
 func progress_dialogue() -> void:
 	current_dialogue_index += 1
 	if current_dialogue_index < total_dialogue_count:
-		$MarginContainer/RichTextLabel.bbcode_text = dialogue[current_dialogue_index]
+		$MarginContainer/RichTextLabel.text = dialogue[current_dialogue_index]
 	else:
 		emit_signal("finished_dialogue")
 		queue_free()
 
 func _fetch_dialogue() -> Array:
-	var dialogue_file: File = File.new()
+	var dialogue_file = FileAccess.open('user://dialog_test.txt', FileAccess.READ)
 	
 	# Open up our quest file and see if there are any errors.
-	var file_status: int = dialogue_file.open(dialogue_path, File.READ)
+	assert(dialogue_file != null, "Failed to open file from path [\"" + dialogue_path + "\"]\nFile Status: " + str(dialogue_file.get_open_error()))
+	
 	var quest_raw: String
-	assert(file_status == OK, "Failed to open file from path [\"" + dialogue_path + "\"]\nFile Status: " + str(file_status))
-	if file_status == OK:
+	if dialogue_file != null:
 		quest_raw = dialogue_file.get_as_text()
 	else:
-		print("File did not load properly. File Status: " + str(file_status))
+		print("File did not load properly. File Status: " + str(dialogue_file.get_open_error()))
+	
 	dialogue_file.close()
 	
 	# Parse the quest data and check for errors.
 	var dialogue_result: Dictionary
-	var dialogue_json_return: JSONParseResult = JSON.parse(quest_raw)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(quest_raw)
+	var dialogue_json_return: JSON = test_json_conv.get_data()
 	assert(dialogue_json_return.error == OK, "Failed to parse dialogue JSON properly! See error below... \n" + str(dialogue_json_return.error))
 	if dialogue_json_return.error == OK:
 		dialogue_result = dialogue_json_return.result

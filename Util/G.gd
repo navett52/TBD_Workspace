@@ -14,11 +14,11 @@ enum Items {
 func create_equipment(type : int) -> Item:
 	if type == Items.NONE:
 		print("Creating NONE")
-		return default_tool.instance()
+		return default_tool.instantiate()
 	
 	if type == Items.LANTERN:
 		print("Creating LANTERN")
-		return lantern.instance()
+		return lantern.instantiate()
 	
 	print("Improper ID, creating NONE by default.")
-	return default_tool.instance()
+	return default_tool.instantiate()

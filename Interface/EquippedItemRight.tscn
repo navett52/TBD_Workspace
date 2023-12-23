@@ -7,5 +7,5 @@
 [node name="Button" parent="Border" index="1"]
 anchor_left = 0.9
 anchor_right = 0.9
-margin_left = 0.0
-margin_right = 16.0
+offset_left = 0.0
+offset_right = 16.0

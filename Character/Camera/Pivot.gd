@@ -1,6 +1,6 @@
-extends Position2D
+extends Marker2D
 
-onready var parent = self.get_parent()
+@onready var parent = self.get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
