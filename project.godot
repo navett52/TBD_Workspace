@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="TBD"
-run/main_scene="res://Test Room.tscn"
+run/main_scene="res://levels/Test Room.tscn"
 config/features=PackedStringArray("4.2")
-config/icon="res://Character/Animations/Raw/mc-base.png"
+config/icon="res://assets/raw/mc-base.png"
 
 [aseprite_animation_importer]
 
@@ -21,8 +21,8 @@ aseprite_executable_path=""
 
 [autoload]
 
-G="*res://Util/G.gd"
-QuestTracker="*res://Util/QuestTracker.gd"
+G="*res://singletons/G.gd"
+QuestTracker="*res://utility/QuestTracker.gd"
 
 [display]
 

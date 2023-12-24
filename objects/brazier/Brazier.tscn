@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" uid="uid://b1un84ql51sks" path="res://icon.png" id="1"]
+[ext_resource type="Script" path="res://objects/brazier/Brazier.gd" id="2"]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 64.0
+height = 0.0
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2( 0, 4 )
+scale = Vector2( 0.25, 0.375 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 16 )
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+self_modulate = Color( 0, 1, 0, 1 )
+shape = SubResource( 2 )

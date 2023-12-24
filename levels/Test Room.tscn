@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cldjogq6883w2"]
+
+[ext_resource type="PackedScene" uid="uid://dj0fnotvyjrjs" path="res://objects/Character/Main Character.tscn" id="1"]
+[ext_resource type="Script" path="res://levels/test_room.gd" id="1_s45yi"]
+[ext_resource type="Texture2D" uid="uid://b1un84ql51sks" path="res://icon.png" id="2"]
+[ext_resource type="PackedScene" path="res://objects/NPCs/NPC.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://objects/brazier/Brazier.tscn" id="4"]
+
+[node name="Test Room" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_s45yi")
+
+[node name="Main Character" parent="." instance=ExtResource("1")]
+speed = 110
+
+[node name="NPC" parent="." instance=ExtResource("3")]
+position = Vector2(112, 0)
+dialogue_path = "res://NPCs/test_script.json"
+objective = "Finished Quest 1"
+reward = 1
+
+[node name="NPC2" parent="." instance=ExtResource("3")]
+position = Vector2(-80, 176)
+dialogue_path = "res://NPCs/test_script.json"
+
+[node name="Center" type="Sprite2D" parent="."]
+modulate = Color(0.207843, 0.176471, 0.227451, 1)
+z_index = -999
+texture = ExtResource("2")
+
+[node name="Sprite2D" parent="." instance=ExtResource("4")]
+position = Vector2(-512, 0)
